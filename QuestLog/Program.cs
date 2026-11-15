@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using QuestLog.Models.Data;
+
 namespace QuestLog
 {
     public class Program
@@ -8,7 +11,10 @@ namespace QuestLog
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                ?? throw new InvalidOperationException("Connection string DefaultConnection not found");
+            builder.Services.AddDbContext<ApplicationDBContext>(options =>
+                options.UseSqlServer(connectionString));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
