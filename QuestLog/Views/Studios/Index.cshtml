@@ -1,0 +1,35 @@
+﻿@model IEnumerable<QuestLog.Models.Data.Studio>
+
+@{
+    ViewData["Title"] = "Studios";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Game Studios</h2>
+    <a asp-action="Create" class="btn btn-primary">+ Add Studio</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No studios added yet. Click "+ Add Studio" to create one!</div>
+}
+else
+{
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var studio in Model)
+            {
+                <tr>
+                    <td>@studio.Name</td>
+                    <td>@studio.Country</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
