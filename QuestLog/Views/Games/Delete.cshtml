@@ -1,0 +1,24 @@
+﻿@model QuestLog.Models.Data.VideoGame
+
+@{
+    ViewData["Title"] = "Delete Game";
+}
+
+<h2 class="text-danger">Delete Video Game</h2>
+<p>Are you sure you want to delete this game and all of its milestones?</p>
+<hr />
+
+<div class="card border-danger mb-3" style="max-width: 500px;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text mb-1"><strong>Studio:</strong> @Model.Studio?.Name</p>
+        <p class="card-text mb-1"><strong>Platform:</strong> @Model.Platform</p>
+        <p class="card-text"><strong>Release Year:</strong> @Model.ReleaseYear</p>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

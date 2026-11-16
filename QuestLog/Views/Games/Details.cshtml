@@ -1,0 +1,61 @@
+﻿@model QuestLog.Models.Data.VideoGame
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">@Model.Title</h3>
+        @if (Model.IsComplete)
+        {
+            <span class="badge bg-success fs-6">Completed</span>
+        }
+        else
+        {
+            <span class="badge bg-warning text-dark fs-6">In Progress</span>
+        }
+    </div>
+    <div class="card-body">
+        <p><strong>Studio:</strong> @Model.Studio?.Name (@Model.Studio?.Country)</p>
+        <p><strong>Platform:</strong> @Model.Platform</p>
+        <p><strong>Release Year:</strong> @Model.ReleaseYear</p>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to Games</a>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>Play Milestones</h4>
+    <a asp-controller="Milestones" asp-action="Create" asp-route-gameId="@Model.Id" class="btn btn-success btn-sm">+ Log Milestone</a>
+</div>
+
+@if (!Model.Milestones.Any())
+{
+    <div class="alert alert-secondary">No milestones logged for this game yet.</div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Milestone</th>
+                <th>Achieved Date</th>
+                <th>Hours Logged</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model.Milestones)
+            {
+                <tr>
+                    <td>@m.MilestoneTitle</td>
+                    <td>@m.AchievedDate.ToString("yyyy-MM-dd")</td>
+                    <td>@m.HoursLogged hrs</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,29 @@
+﻿@model QuestLog.Models.Data.VideoGame
+
+<div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+                <h5 class="card-title">@Model.Title</h5>
+                @if (Model.IsComplete)
+                {
+                    <span class="badge bg-success">Completed</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning text-dark">In Progress</span>
+                }
+            </div>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Studio?.Name</h6>
+            <p class="card-text mb-1"><strong>Platform:</strong> @Model.Platform</p>
+            <p class="card-text"><strong>Release Year:</strong> @Model.ReleaseYear</p>
+        </div>
+        <div class="card-footer bg-transparent d-flex justify-content-between">
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info btn-sm">Details</a>
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary btn-sm">Edit</a>
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

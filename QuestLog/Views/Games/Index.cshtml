@@ -1,0 +1,24 @@
+﻿@model IEnumerable<QuestLog.Models.Data.VideoGame>
+
+@{
+    ViewData["Title"] = "Video Games";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>My Game Backlog</h2>
+    <a asp-action="Create" class="btn btn-primary">+ Add Game</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No games added yet. Click "+ Add Game" to start your QuestLog!</div>
+}
+else
+{
+    <div class="row">
+        @foreach (var game in Model)
+        {
+            <partial name="_GameCardPartial" model="game" />
+        }
+    </div>
+}

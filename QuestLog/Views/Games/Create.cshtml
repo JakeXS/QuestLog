@@ -1,0 +1,52 @@
+﻿@model QuestLog.Models.ViewModels.GameViewModel
+
+@{
+    ViewData["Title"] = "Add Game";
+}
+
+<h2>Add Video Game</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Platform" class="form-label"></label>
+                <input asp-for="Platform" class="form-control" placeholder="e.g. PC, PS5, Switch" />
+                <span asp-validation-for="Platform" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ReleaseYear" class="form-label"></label>
+                <input asp-for="ReleaseYear" class="form-control" />
+                <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="StudioId" class="form-label"></label>
+                <select asp-for="StudioId" asp-items="Model.Studios" class="form-select">
+                    <option value="">-- Select a Studio --</option>
+                </select>
+                <span asp-validation-for="StudioId" class="text-danger"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="IsComplete" class="form-check-input" />
+                <label asp-for="IsComplete" class="form-check-label">Completed?</label>
+            </div>
+
+            <button type="submit" class="btn btn-success">Save Game</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
