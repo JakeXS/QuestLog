@@ -4,7 +4,7 @@ A personal video game backlog and milestone tracker built with **ASP.NET Core MV
 
 ## Features
 - **Game Backlog Management (Full CRUD):** Add, view, edit, and delete video games with platform, release year, studio, and completion status tracking.
-- **Play Milestones:** Log individual play milestones, completion dates, and hours invested for each video game.
+- **Play Milestones:** Log and deletes individual play milestones, completion dates, and hours invested for each video game.
 - **Game Studios Catalog:** Create and browse game development studios and their countries.
 - **Client & Server-Side Validation:** Form inputs are validated using Data Annotations (`[Required]`, `[StringLength]`, `[Range]`) and jQuery Unobtrusive Validation.
 
