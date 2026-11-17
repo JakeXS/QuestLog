@@ -29,3 +29,45 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+/* QuestLog Custom Styling */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-questlog {
+    background: linear-gradient(90deg, #14171f 0%, #1f2533 100%);
+    border-bottom: 2px solid #6366f1;
+}
+
+    .navbar-questlog .navbar-brand {
+        letter-spacing: 0.5px;
+        color: #ffffff !important;
+    }
+
+    .navbar-questlog .nav-link {
+        color: #cbd5e1 !important;
+        font-weight: 500;
+        transition: color 0.15s ease-in-out;
+    }
+
+        .navbar-questlog .nav-link:hover {
+            color: #818cf8 !important;
+        }
+
+.card {
+    border-radius: 0.75rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.65rem 1.25rem rgba(15, 23, 42, 0.1) !important;
+    }
+
+.hero-questlog {
+    background: linear-gradient(135deg, #1e2433 0%, #2a324b 100%);
+    color: #ffffff;
+    border-radius: 1rem;
+}
