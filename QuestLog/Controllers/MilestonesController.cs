@@ -42,5 +42,21 @@ namespace QuestLog.Controllers
             await _dbContext.SaveChangesAsync();
             return RedirectToAction("Details", "Games", new {id = model.VideoGameId});
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var milestone = await _dbContext.PlayMilestones.FindAsync(id);
+            if (milestone == null)
+            {
+                return NotFound();
+            }
+
+            int gameId = milestone.VideoGameId;
+            _dbContext.PlayMilestones.Remove(milestone);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction("Details", "Games", new { id = gameId });
+        }
     }
 }
