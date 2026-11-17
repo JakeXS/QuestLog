@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using QuestLog.Models.Data;
 using System.ComponentModel.DataAnnotations;
 
 namespace QuestLog.Models.ViewModels

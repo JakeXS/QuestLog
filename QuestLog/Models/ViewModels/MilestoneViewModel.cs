@@ -5,7 +5,7 @@ namespace QuestLog.Models.ViewModels
     public class MilestoneViewModel
     {
         [Required(ErrorMessage = "Milestone Title is required!")]
-        [StringLength(100, MinimumLength = 2)]
+        [StringLength(120, MinimumLength = 2)]
         public string MilestoneTitle { get; set; } = string.Empty;
         [Required]
         [DataType(DataType.Date)]
