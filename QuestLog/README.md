@@ -21,11 +21,12 @@ A personal video game backlog and milestone tracker built with **ASP.NET Core MV
 ## Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone https://github.com/JakeXS/QuestLog
+   git clone https://github.com
    ```
-2. Open `QuestLog/appsettings.json` and update the `DefaultConnection` string `Server` value to match your local SQL Server instance (e.g., `Server=localhost;...` or `Server=.\SQLEXPRESS;...`).
+2. The application uses SQL Server LocalDB (`(localdb)\mssqllocaldb`) by default in `QuestLog/appsettings.json`. If you use a different SQL Server instance, update the `Server` value in `DefaultConnection` accordingly.
 3. Open **Package Manager Console** in Visual Studio and apply the database migrations:
    ```powershell
    Update-Database
    ```
 4. Press `F5` (or run `dotnet run`) to launch the application.
+
