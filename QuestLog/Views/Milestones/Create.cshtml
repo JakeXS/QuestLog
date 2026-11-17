@@ -1,0 +1,44 @@
+﻿@model QuestLog.Models.ViewModels.MilestoneViewModel
+
+@{
+    ViewData["Title"] = "Log Milestone";
+}
+
+<h2>Log Play Milestone @if (ViewBag.GameTitle != null) {
+    <small class="text-muted">for @ViewBag.GameTitle</small>
+}
+</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <input type="hidden" asp-for="VideoGameId" />
+
+            <div class="mb-3">
+                <label asp-for="MilestoneTitle" class="form-label">Milestone Title</label>
+                <input asp-for="MilestoneTitle" class="form-control" placeholder="e.g. Beat Final Boss, 100% Completion" />
+                <span asp-validation-for="MilestoneTitle" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="AchievedDate" class="form-label">Achieved Date</label>
+                <input asp-for="AchievedDate" class="form-control" />
+                <span asp-validation-for="AchievedDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="HoursLogged" class="form-label">Hours Logged</label>
+                <input asp-for="HoursLogged" class="form-control" />
+                <span asp-validation-for="HoursLogged" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Save Milestone</button>
+            <a asp-controller="Games" asp-action="Details" asp-route-id="@Model.VideoGameId" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

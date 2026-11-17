@@ -1,8 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border text-center">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">Welcome to QuestLog</h1>
+        <p class="col-md-8 mx-auto fs-5 text-muted mb-4">
+            Organize your personal video game backlog, track development studios, and log your proudest play milestones.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <a asp-controller="Games" asp-action="Index" class="btn btn-primary btn-lg px-4">Browse My Games</a>
+            <a asp-controller="Studios" asp-action="Index" class="btn btn-outline-dark btn-lg px-4">Explore Studios</a>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 text-center">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="card-title fw-bold">Game Backlog</h5>
+                <p class="card-text text-muted">Keep track of every title you own, its platform, release year, and completion status.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="card-title fw-bold">Play Milestones</h5>
+                <p class="card-text text-muted">Log memorable achievements, boss defeats, and total hours invested per game.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="card-title fw-bold">Game Studios</h5>
+                <p class="card-text text-muted">Catalog the developers and countries behind your favorite titles.</p>
+            </div>
+        </div>
+    </div>
 </div>
